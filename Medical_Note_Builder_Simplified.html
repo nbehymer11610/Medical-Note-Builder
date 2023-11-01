@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Note Builder</title>
+    <style>
+        #organSystems {
+            width: 50%;
+            float: left;
+        }
+        #note {
+            width: 50%;
+            float: right;
+        }
+        .organSystemDropdown {
+            display: none;
+        }
+    </style>
+    <script>
+        // Organ System Phrases
+        var organSystems = {'Abdomen': {'Abdomen is': ['Soft', 'Round', 'Flat', 'Non-tender', 'No palpable masses', 'No organomegaly'], 'Bowel sounds': ['Normal'], 'Abdominal': ['No bruits']}, 'Cardiovascular': {'Heart exam shows': ['Regular rate and rhythm', 'Normal S1 and S2', 'No murmurs', 'No rubs', 'No gallops']}, 'Heme/Lymph': {'Neck': ['Supple', 'Trachea is midline', 'No palpable thyromegaly'], 'Nodes': ['No palpable cervical, pre-auricular, submandibular, submental, supraclavicular, axillary, epitrochlear, or inguinal adenopathy'], 'Spleen': ['Non-palpable'], 'Skin': ['No petechiae', 'No purpura', 'No ecchymoses']}, 'MSK': {'Joints have': ['Full range of motion (ROM)', 'No deformities', 'No tenderness', 'No abnormalities'], 'Ambulatory': ['Patient is ambulatory without assistance']}};
+
+        // Function to add phrase to note
+        function addPhraseToNote(phrase) {
+            var note = document.getElementById("note");
+            var existingText = note.value;
+            note.value = existingText ? existingText + ", " + phrase : phrase;
+        }
+
+        // Function to toggle organ system dropdown
+        function toggleOrganSystem(id) {
+            var element = document.getElementById(id);
+            element.style.display = element.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body onload="init()">
+    <div id="organSystems"></div>
+    <textarea id="note"></textarea>
+    <script>
+        // Initialize the page
+        function init() {
+            var organSystemsDiv = document.getElementById("organSystems");
+            for (var system in organSystems) {
+                var systemDiv = document.createElement("div");
+                systemDiv.innerHTML = '<button onclick="toggleOrganSystem('' + system + 'Dropdown')">' + system + '</button>';
+                var dropdownDiv = document.createElement("div");
+                dropdownDiv.id = system + "Dropdown";
+                dropdownDiv.className = "organSystemDropdown";
+                for (var subcategory in organSystems[system]) {
+                    var subcategoryDiv = document.createElement("div");
+                    subcategoryDiv.innerHTML = subcategory;
+                    for (var i = 0; i < organSystems[system][subcategory].length; i++) {
+                        var phrase = organSystems[system][subcategory][i];
+                        subcategoryDiv.innerHTML += ' <button onclick="addPhraseToNote('' + phrase + '')">' + phrase + '</button>';
+                    }
+                    dropdownDiv.appendChild(subcategoryDiv);
+                }
+                systemDiv.appendChild(dropdownDiv);
+                organSystemsDiv.appendChild(systemDiv);
+            }
+        }
+    </script>
+</body>
+</html>
