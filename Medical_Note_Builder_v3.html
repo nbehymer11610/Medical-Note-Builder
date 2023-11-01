@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Note Builder</title>
+    <style>
+        #container {
+            display: flex;
+            justify-content: space-between;
+        }
+        #organ-systems {
+            width: 45%;
+        }
+        #note {
+            width: 45%;
+        }
+        .phrase-button {
+            margin: 5px;
+            cursor: pointer;
+        }
+        .organ-system {
+            margin-bottom: 15px;
+        }
+        .organ-system h2 {
+            cursor: pointer;
+        }
+        .phrases {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Medical Note Builder</h1>
+
+    <div id="container">
+        <div id="organ-systems">
+            <!-- Organ Systems will go here -->
+        </div>
+
+        <textarea id="note" rows="20"></textarea>
+    </div>
+
+    <script>
+        // Organ System Phrases
+        const organSystems = {
+            "Abdomen": ["Abdomen is", "soft", "round", "flat", "non-tender", "no palpable masses", "no organomegaly", "normal bowel sounds", "no abdominal bruits"],
+            "Cardiovascular": ["Heart exam showed", "regular rate and rhythm", "normal S1 and S2", "no murmurs", "no rubs", "no gallops"],
+            // More systems can be added here
+        };
+
+        // Function to add phrase to note
+        function addPhraseToNote(phrase) {
+            const note = document.getElementById("note");
+            if (note.value && note.value[note.value.length - 1] !== ' ') {
+                note.value += ", ";
+            }
+            note.value += phrase + " ";
+        }
+
+        // Function to toggle phrases display
+        function togglePhrases(id) {
+            const element = document.getElementById(id);
+            element.style.display = (element.style.display === "none" || element.style.display === "") ? "block" : "none";
+        }
+
+        // Populate organ systems
+        const organSystemsDiv = document.getElementById("organ-systems");
+        let idCounter = 1;
+        for (const [system, phrases] of Object.entries(organSystems)) {
+            const section = document.createElement("div");
+            section.className = "organ-system";
+            
+            const id = "phrases-" + idCounter;
+            section.innerHTML = `<h2 onclick="togglePhrases('${id}')">${system}</h2>`;
+            
+            const phrasesDiv = document.createElement("div");
+            phrasesDiv.id = id;
+            phrasesDiv.className = "phrases";
+            
+            for (const phrase of phrases) {
+                const button = document.createElement("button");
+                button.innerHTML = phrase;
+                button.className = "phrase-button";
+                button.onclick = function() { addPhraseToNote(phrase); };
+                phrasesDiv.appendChild(button);
+            }
+            
+            section.appendChild(phrasesDiv);
+            organSystemsDiv.appendChild(section);
+            idCounter++;
+        }
+    </script>
+
+</body>
+</html>
