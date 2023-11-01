@@ -1,11 +1,7 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Medical Note Builder Expanded Version</title>
-   <script>
+<script>
     // List of all dropdown IDs
-    var dropdownIds = ['abdomenDropdown', 'cardiovascularDropdown', 'heentDropdown', 'hemelymphDropdown', 'mskDropdown', 'respiratoryDropdown', 'endocrineDropdown', 'reproductiveDropdown', 'maleGUDropdown', 'femaleGUDropdown', 'neruoDrodown', 'psychDropdown', 'renalDropwdown'];  // add other IDs here as you expand the sections
+    var dropdownIds = ['abdomenDropdown', 'cardiovascularDropdown', 'heentDropdown', 'hemelymphDropdown', 'mskDropdown', 'respiratoryDropdown', 'endocrineDropdown', 'reproductiveDropdown', 'maleGUDropdown', 'femaleGUDropdown', 'neuroDropdown', 'psychDropdown', 'renalDropdown'];  // Corrected IDs
     
     // Function to add phrase to note
     function addPhraseToNote(phrase) {
@@ -33,7 +29,7 @@
             
             // Show all other dropdowns when closing the current one
             dropdownIds.forEach(function(otherId) {
-                document.getElementById(otherId).style.display = "block";
+                document.getElementById(otherId).style.display = "none";  // Changed to 'none'
             });
         }
     }
