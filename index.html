@@ -5,7 +5,7 @@
     
 <script>
     // List of all dropdown IDs
-    var dropdownIds = ['abdomenDropdown', 'cardiovascularDropdown', 'heentDropdown', 'hemelymphDropdown', 'mskDropdown', 'respiratoryDropdown', 'endocrineDropdown', 'reproductiveDropdown', 'maleGUDropdown', 'femaleGUDropdown', 'neuroDropdown', 'psychDropdown', 'renalDropdown'];  // Corrected IDs
+    var dropdownIds = ['abdomenDropdown', 'cardiovascularDropdown', 'heentDropdown', 'hemelymphDropdown', 'mskDropdown', 'respiratoryDropdown', 'endocrineDropdown', 'maleGUDropdown', 'femaleGUDropdown', 'neuroDropdown', 'psychDropdown', 'renalDropdown'];  // Corrected IDs
     
     // Function to add phrase to note
     function addPhraseToNote(phrase) {
@@ -92,7 +92,7 @@
     <button onclick="addPhraseToNote('Head is normocephalic and atraumatic')">Head is normocephalic and atraumatic</button>
     <button onclick="addPhraseToNote('Scalp and hair normal')">Scalp and hair normal</button>
     <button onclick="addPhraseToNote('Visual acuity is 20/20')">Visual acuity is 20/20</button>
-    <button onclick="addPhraseToNote('Pupils are equal, round, and reactive to light and accommodation')">Pupils are equal, round, and reactive to light and accommodation</button>
+    <button onclick="addPhraseToNote('PERRLA')">PERRLA</button>
     <button onclick="addPhraseToNote('Extraocular movements are intact')">Extraocular movements are intact</button>
     <button onclick="addPhraseToNote('Pinnae normal')">Pinnae normal</button>
     <button onclick="addPhraseToNote('Hearing is normal bilaterally to finger rub')">Hearing is normal bilaterally to finger rub</button>
@@ -138,23 +138,30 @@
         <!-- Placeholder for phrases -->
     </div>
 
-    <!-- Button and dropdown for Reproductive -->
-    <button id="reproductiveDropdownButton" onclick="toggleDropdown('reproductiveDropdown', 'reproductiveDropdownButton')" style="display: block;">Reproductive</button>
-    <div id="reproductiveDropdown" class="dropdown-content">
-        <!-- Placeholder for phrases -->
-    </div>
-
     <!-- Button and dropdown for Male GU -->
-    <button id="maleGUDropdownButton" onclick="toggleDropdown('maleGUDropdown', 'maleGUDropdownButton')" style="display: block;">Male GU</button>
-    <div id="maleGUDropdown" class="dropdown-content">
-        <!-- Placeholder for phrases -->
-    </div>
+<button id="maleGUDropdownButton" onclick="toggleDropdown('maleGUDropdown', 'maleGUDropdownButton')" style="display: block;">Male GU</button>
+<div id="maleGUDropdown" class="dropdown-content">
+    <button onclick="addPhraseToNote('The penis is circumcised')">The penis is circumcised</button>
+    <button onclick="addPhraseToNote('Urethral meatus is normal and without discharge')">Urethral meatus is normal and without discharge</button>
+    <button onclick="addPhraseToNote('Both testes are in the scrotum and are within normal limits')">Both testes are in the scrotum and are within normal limits</button>
+    <button onclick="addPhraseToNote('There are no abnormal scrotal masses')">There are no abnormal scrotal masses</button>
+    <button onclick="addPhraseToNote('No inguinal hernias are present')">No inguinal hernias are present</button>
+    <button onclick="addPhraseToNote('No inguinal adenopathy is present')">No inguinal adenopathy is present</button>
+</div>
 
-    <!-- Button and dropdown for Female GU -->
-    <button id="femaleGUDropdownButton" onclick="toggleDropdown('femaleGUDropdown', 'femaleDropdownButton')" style="display: block;">Female GU</button>
-    <div id="femaleGUDropdown" class="dropdown-content">
-        <!-- Placeholder for phrases -->
-    </div>
+<!-- Button and dropdown for Female GU -->
+<button id="femaleGUDropdownButton" onclick="toggleDropdown('femaleGUDropdown', 'femaleDropdownButton')" style="display: block;">Female GU</button>
+<div id="femaleGUDropdown" class="dropdown-content">
+    <button onclick="addPhraseToNote('Examination of the vulva is within normal limits')">Examination of the vulva is within normal limits</button>
+    <button onclick="addPhraseToNote('No lesions are present')">No lesions are present</button>
+    <button onclick="addPhraseToNote('The cervix appears pink, smooth, and nulliparous')">The cervix appears pink, smooth, and nulliparous</button>
+    <button onclick="addPhraseToNote('There is no discharge from the external cervical os')">There is no discharge from the external cervical os</button>
+    <button onclick="addPhraseToNote('The vaginal walls appear normal')">The vaginal walls appear normal</button>
+    <button onclick="addPhraseToNote('Bimanual palpation reveals an anteverted, anteflexed uterus without masses or tenderness')">Bimanual palpation reveals an anteverted, anteflexed uterus without masses or tenderness</button>
+    <button onclick="addPhraseToNote('The adnexa are unremarkable')">The adnexa are unremarkable</button>
+    <button onclick="addPhraseToNote('Rectovaginal examination reveals a thin rectovaginal membrane without tenderness or palpable masses')">Rectovaginal examination reveals a thin rectovaginal membrane without tenderness or palpable masses</button>
+    <button onclick="addPhraseToNote('Stool is brown and guaiac negative')">Stool is brown and guaiac negative</button>
+</div>
 
  <!-- Button and dropdown for Neuro -->
     <button id="neuroDropdownButton" onclick="toggleDropdown('neuroDropdown', 'neuroDropdownButton')" style="display: block;">Neuro</button>
@@ -163,10 +170,19 @@
     </div>
 
     <!-- Button and dropdown for Psych -->
-    <button id="psychDropdownButton" onclick="toggleDropdown('psychDropdown', 'psychDropdownButton')" style="display: block;">Psych</button>
-    <div id="psychDropdown" class="dropdown-content">
-        <!-- Placeholder for phrases -->
-    </div>
+<button id="psychDropdownButton" onclick="toggleDropdown('psychDropdown', 'psychDropdownButton')" style="display: block;">Psych</button>
+<div id="psychDropdown" class="dropdown-content">
+    <button onclick="addPhraseToNote('Affect within normal limits')">Affect within normal limits</button>
+    <button onclick="addPhraseToNote('Appropriate emotional responsiveness observed during the examination')">Appropriate emotional responsiveness observed during the examination</button>
+    <button onclick="addPhraseToNote('Oriented to person, place, and time (oriented x3)')">Oriented to person, place, and time (oriented x3)</button>
+    <button onclick="addPhraseToNote('Normal thought content; no evidence of delusions or hallucinations')">Normal thought content; no evidence of delusions or hallucinations</button>
+    <button onclick="addPhraseToNote('Good insight and judgment')">Good insight and judgment</button>
+    <button onclick="addPhraseToNote('Appropriate speech rate and volume; speech is clear and audible')">Appropriate speech rate and volume; speech is clear and audible</button>
+    <button onclick="addPhraseToNote('Cooperative and actively engaged in the interview')">Cooperative and actively engaged in the interview</button>
+    <button onclick="addPhraseToNote('Mood congruent with affect')">Mood congruent with affect</button>
+    <button onclick="addPhraseToNote('No evidence of psychosis')">No evidence of psychosis</button>
+    <button onclick="addPhraseToNote('Demonstrates appropriate social interactions and maintains eye contact')">Demonstrates appropriate social interactions and maintains eye contact</button>
+</div>
 
     <!-- Button and dropdown for Renal -->
     <button id="renalDropdownButton" onclick="toggleDropdown('renalDropdown', 'renalDropdownButton')" style="display: block;">Renal</button>
