@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Note Builder</title>
+    <style>
+        #organ-systems {
+            margin-bottom: 20px;
+        }
+        .phrase-button {
+            margin: 5px;
+            cursor: pointer;
+        }
+        .organ-system {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Medical Note Builder</h1>
+
+    <div id="organ-systems">
+        <!-- Organ Systems will go here -->
+    </div>
+
+    <textarea id="note" rows="10" cols="50"></textarea>
+
+    <script>
+        // Organ System Phrases
+        const organSystems = {
+            "Abdomen": ["Abdomen is", "soft", "round", "flat", "non-tender", "no palpable masses", "no organomegaly", "normal bowel sounds", "no abdominal bruits"],
+            "Cardiovascular": ["Heart exam showed", "regular rate and rhythm", "normal S1 and S2", "no murmurs", "no rubs", "no gallops"],
+            "HEENT": ["Head is", "Normocephalic", "atraumatic", "Scalp and hair normal"],
+            "Heme/Lymph": ["Neck is", "Supple", "Trachea is midline", "no palpable thyromegaly", "Nodes:", "No palpable cervical", "no pre-auricular", "no submandibular", "no submental", "no supraclavicular", "no axillary", "no epitrochlear", "no inguinal adenopathy", "Spleen is", "non-palpable"],
+            "MSK": ["Joints have", "full range of motion", "no deformities", "no tenderness", "no abnormalities", "Patient is", "ambulatory without assistance"]
+        };
+
+        // Function to add phrase to note
+        function addPhraseToNote(phrase) {
+            const note = document.getElementById("note");
+            if (note.value && note.value[note.value.length - 1] !== ' ') {
+                note.value += ", ";
+            }
+            note.value += phrase + " ";
+        }
+
+        // Populate organ systems
+        const organSystemsDiv = document.getElementById("organ-systems");
+        for (const [system, phrases] of Object.entries(organSystems)) {
+            const section = document.createElement("div");
+            section.className = "organ-system";
+            section.innerHTML = `<h2>${system}</h2>`;
+            for (const phrase of phrases) {
+                const button = document.createElement("button");
+                button.innerHTML = phrase;
+                button.className = "phrase-button";
+                button.onclick = function() { addPhraseToNote(phrase); };
+                section.appendChild(button);
+            }
+            organSystemsDiv.appendChild(section);
+        }
+    </script>
+
+</body>
+</html>
