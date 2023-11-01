@@ -64,6 +64,7 @@
     <!-- Button and dropdown for Abdomen -->
 <button id="abdomenDropdownButton" onclick="toggleDropdown('abdomenDropdown', 'abdomenDropdownButton')" style="display: block;">Abdomen</button>
 <div id="abdomenDropdown" class="dropdown-content">
+    <button onclick="addPhraseToNote('Abdomen:')">Abdomen:</button>
     <button onclick="addPhraseToNote('Abdomen is soft')">Abdomen is soft</button>
     <button onclick="addPhraseToNote('Abdomen is round')">Abdomen is round</button>
     <button onclick="addPhraseToNote('Abdomen is flat')">Abdomen is flat</button>
@@ -79,6 +80,7 @@
    <!-- Button and dropdown for Cardiovascular -->
 <button id="cardiovascularDropdownButton" onclick="toggleDropdown('cardiovascularDropdown', 'cardiovascularDropdownButton')" style="display: block;">Cardiovascular</button>
 <div id="cardiovascularDropdown" class="dropdown-content">
+     <button onclick="addPhraseToNote('Cardiovascular:')">Cardiovascular:</button>
     <button onclick="addPhraseToNote('Regular rate and rythym')">Regular rate and rythym</button>
     <button onclick="addPhraseToNote('Normal S1 and S2')">Normal S1 and S2</button>
     <button onclick="addPhraseToNote('No murmurs, rubs, or gallops')">No murmurs, rubs, or gallops</button>
@@ -103,22 +105,32 @@
     <button onclick="addPhraseToNote('Oropharynx is normal without exudate or erythema')">Oropharynx is normal without exudate or erythema</button>
 </div>
     <!-- Button and dropdown for Heme/Lymph -->
-    <button id="hemelymphDropdownButton" onclick="toggleDropdown('hemelymphDropdown', 'hemelymphDropdownButton')" style="display: block;">Heme/Lymph</button>
-    <div id="hemelymphDropdown" class="dropdown-content">
-        <!-- Placeholder for phrases -->
-    </div>
+<button id="hemelymphDropdownButton" onclick="toggleDropdown('hemelymphDropdown', 'hemelymphDropdownButton')" style="display: block;">Heme/Lymph</button>
+<div id="hemelymphDropdown" class="dropdown-content">
+    <button onclick="addPhraseToNote('Neck is supple')">Neck is supple</button>
+    <button onclick="addPhraseToNote('No palpable thyromegaly')">No palpable thyromegaly</button>
+    <button onclick="addPhraseToNote('No palpable adenopathy')">No palpable adenopathy</button>
+    <button onclick="addPhraseToNote('Spleen is non-palpable')">Spleen is non-palpable</button>
+    <button onclick="addPhraseToNote('No petechiae, purpura, or ecchymoses')">No petechiae, purpura, or ecchymoses</button>
+</div>
 
-    <!-- Button and dropdown for MSK -->
-    <button id="mskDropdownButton" onclick="toggleDropdown('mskDropdown', 'mskDropdownButton')" style="display: block;">MSK</button>
-    <div id="mskDropdown" class="dropdown-content">
-        <!-- Placeholder for phrases -->
-    </div>
+<!-- Button and dropdown for MSK -->
+<button id="mskDropdownButton" onclick="toggleDropdown('mskDropdown', 'mskDropdownButton')" style="display: block;">MSK</button>
+<div id="mskDropdown" class="dropdown-content">
+    <button onclick="addPhraseToNote('All joints have full range of motion')">All joints have full range of motion</button>
+    <button onclick="addPhraseToNote('No deformities')">No deformities</button>
+    <button onclick="addPhraseToNote('No tenderness')">No tenderness</button>
+    <button onclick="addPhraseToNote('Patient is ambulatory without assistance')">Patient is ambulatory without assistance</button>
+</div>
 
-    <!-- Button and dropdown for Respiratory -->
-    <button id="respiratoryDropdownButton" onclick="toggleDropdown('respiratoryDropdown', 'respiratoryDropdownButton')" style="display: block;">Respiratory</button>
-    <div id="respiratoryDropdown" class="dropdown-content">
-        <!-- Placeholder for phrases -->
-    </div>
+<!-- Button and dropdown for Respiratory -->
+<button id="respiratoryDropdownButton" onclick="toggleDropdown('respiratoryDropdown', 'respiratoryDropdownButton')" style="display: block;">Respiratory</button>
+<div id="respiratoryDropdown" class="dropdown-content">
+    <button onclick="addPhraseToNote('Breathing is unlabored')">Breathing is unlabored</button>
+    <button onclick="addPhraseToNote('No wheezing')">No wheezing</button>
+    <button onclick="addPhraseToNote('No rhonchi')">No rhonchi</button>
+    <button onclick="addPhraseToNote('No crackles')">No crackles</button>
+</div>
 
     <!-- Button and dropdown for Endocrine -->
     <button id="endocrineDropdownButton" onclick="toggleDropdown('endocrineDropdown', 'endocrineDropdownButton')" style="display: block;">Endocrine</button>
@@ -165,7 +177,7 @@
 
     <!-- Text box to show the note, positioned to the right -->
     <div style="float: right; margin-left: 60%; ">
-        <textarea id="note"></textarea>
+       <textarea id="note" rows="20" cols="50"></textarea>
     </div>
 </body>
 </html>
