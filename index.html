@@ -1,4 +1,8 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Note Builder Expanded Version</title>
+    
 <script>
     // List of all dropdown IDs
     var dropdownIds = ['abdomenDropdown', 'cardiovascularDropdown', 'heentDropdown', 'hemelymphDropdown', 'mskDropdown', 'respiratoryDropdown', 'endocrineDropdown', 'reproductiveDropdown', 'maleGUDropdown', 'femaleGUDropdown', 'neuroDropdown', 'psychDropdown', 'renalDropdown'];  // Corrected IDs
@@ -11,25 +15,29 @@
     }
     
     // Function to toggle dropdown visibility
-    function toggleDropdown(id) {
+    function toggleDropdown(id, buttonId) {
         var dropdown = document.getElementById(id);
+        var button = document.getElementById(buttonId);
         
-        // Hide all other dropdowns
+        // Hide all other dropdowns and buttons
         dropdownIds.forEach(function(otherId) {
             if(otherId !== id) {
                 document.getElementById(otherId).style.display = "none";
+                document.getElementById(otherId + 'Button').style.display = "none";
             }
         });
         
-        // Toggle the clicked dropdown
+        // Toggle the clicked dropdown and button
         if (dropdown.style.display === "none") {
             dropdown.style.display = "block";
+            button.style.display = "block";
         } else {
             dropdown.style.display = "none";
             
-            // Show all other dropdowns when closing the current one
+            // Show all other dropdowns and buttons when closing the current one
             dropdownIds.forEach(function(otherId) {
-                document.getElementById(otherId).style.display = "none";  // Changed to 'none'
+                document.getElementById(otherId).style.display = "none";
+                document.getElementById(otherId + 'Button').style.display = "block";
             });
         }
     }
@@ -52,8 +60,9 @@
 </head>
 <body>
     <div class="left-column">
+        
     <!-- Button and dropdown for Abdomen -->
-<button onclick="toggleDropdown('abdomenDropdown')" style="display: block;">Abdomen</button>
+<button id="abdomenDropdownButton" onclick="toggleDropdown('abdomenDropdown', 'abdomenDropdownButton')" style="display: block;">Abdomen</button>
 <div id="abdomenDropdown" class="dropdown-content">
     <button onclick="addPhraseToNote('Abdomen is soft')">Abdomen is soft</button>
     <button onclick="addPhraseToNote('Abdomen is round')">Abdomen is round</button>
@@ -68,74 +77,74 @@
 </div>
     
     <!-- Button and dropdown for Cardiovascular -->
-    <button onclick="toggleDropdown('cardiovascularDropdown')" style="display: block;">Cardiovascular</button>
+    <button id="cardiovascularDropdownButton"  onclick="toggleDropdown('cardiovascularDropdown', 'cardiovascularDropdownButton')" style="display: block;">Cardiovascular</button>
     <div id="cardiovascularDropdown" class="dropdown-content">
         <button onclick="addPhraseToNote('Heart rate is regular')">Heart rate is regular</button>
         <button onclick="addPhraseToNote('No murmurs')">No murmurs</button>
     </div>
 
     <!-- Button and dropdown for HEENT -->
-    <button onclick="toggleDropdown('heentDropdown')" style="display: block;">HEENT</button>
+    <button id="heentDropdownButton" onclick="toggleDropdown('heentDropdown', 'heentDropdownButton')" style="display: block;">HEENT</button>
     <div id="heentDropdown" class="dropdown-content">
         <!-- Placeholder for phrases -->
     </div>
 
     <!-- Button and dropdown for Heme/Lymph -->
-    <button onclick="toggleDropdown('hemelymphDropdown')" style="display: block;">Heme/Lymph</button>
+    <button id="hemelymphDropdownButton" onclick="toggleDropdown('hemelymphDropdown', 'hemelymphDropdownButton')" style="display: block;">Heme/Lymph</button>
     <div id="hemelymphDropdown" class="dropdown-content">
         <!-- Placeholder for phrases -->
     </div>
 
     <!-- Button and dropdown for MSK -->
-    <button onclick="toggleDropdown('mskDropdown')" style="display: block;">MSK</button>
+    <button id="mskDropdownButton" onclick="toggleDropdown('mskDropdown', 'mskDropdownButton')" style="display: block;">MSK</button>
     <div id="mskDropdown" class="dropdown-content">
         <!-- Placeholder for phrases -->
     </div>
 
     <!-- Button and dropdown for Respiratory -->
-    <button onclick="toggleDropdown('respiratoryDropdown')" style="display: block;">Respiratory</button>
+    <button id="respiratoryDropdownButton" onclick="toggleDropdown('respiratoryDropdown', 'respiratoryDropdownButton')" style="display: block;">Respiratory</button>
     <div id="respiratoryDropdown" class="dropdown-content">
         <!-- Placeholder for phrases -->
     </div>
 
     <!-- Button and dropdown for Endocrine -->
-    <button onclick="toggleDropdown('endocrineDropdown')" style="display: block;">Endocrine</button>
+    <button id="endocrineDropdownButton" onclick="toggleDropdown('endocrineDropdown', 'endocrineDropdownButton')" style="display: block;">Endocrine</button>
     <div id="endocrineDropdown" class="dropdown-content">
         <!-- Placeholder for phrases -->
     </div>
 
     <!-- Button and dropdown for Reproductive -->
-    <button onclick="toggleDropdown('reproductiveDropdown')" style="display: block;">Reproductive</button>
+    <button id="reproductiveDropdownButton" onclick="toggleDropdown('reproductiveDropdown', 'reproductiveDropdownButton')" style="display: block;">Reproductive</button>
     <div id="reproductiveDropdown" class="dropdown-content">
         <!-- Placeholder for phrases -->
     </div>
 
     <!-- Button and dropdown for Male GU -->
-    <button onclick="toggleDropdown('maleGUDropdown')" style="display: block;">Male GU</button>
+    <button id="maleGUDropdownButton" onclick="toggleDropdown('maleGUDropdown', 'maleGUDropdownButton')" style="display: block;">Male GU</button>
     <div id="maleGUDropdown" class="dropdown-content">
         <!-- Placeholder for phrases -->
     </div>
 
     <!-- Button and dropdown for Female GU -->
-    <button onclick="toggleDropdown('femaleGUDropdown')" style="display: block;">Female GU</button>
+    <button id="femaleGUDropdownButton" onclick="toggleDropdown('femaleGUDropdown', 'femaleDropdownButton')" style="display: block;">Female GU</button>
     <div id="femaleGUDropdown" class="dropdown-content">
         <!-- Placeholder for phrases -->
     </div>
 
  <!-- Button and dropdown for Neuro -->
-    <button onclick="toggleDropdown('neuroDropdown')" style="display: block;">Neuro</button>
+    <button id="neuroDropdownButton" onclick="toggleDropdown('neuroDropdown', 'neuroDropdownButton')" style="display: block;">Neuro</button>
     <div id="neuroDropdown" class="dropdown-content">
         <!-- Placeholder for phrases -->
     </div>
 
     <!-- Button and dropdown for Psych -->
-    <button onclick="toggleDropdown('psychDropdown')" style="display: block;">Psych</button>
+    <button id="psychDropdownButton" onclick="toggleDropdown('psychDropdown', 'psychDropdownButton')" style="display: block;">Psych</button>
     <div id="psychDropdown" class="dropdown-content">
         <!-- Placeholder for phrases -->
     </div>
 
     <!-- Button and dropdown for Renal -->
-    <button onclick="toggleDropdown('renalDropdown')" style="display: block;">Renal</button>
+    <button id="renalDropdownButton" onclick="toggleDropdown('renalDropdown', 'renalDropdownButton')" style="display: block;">Renal</button>
     <div id="renalDropdown" class="dropdown-content">
         <!-- Placeholder for phrases -->
     </div>
