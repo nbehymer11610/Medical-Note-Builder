@@ -3,20 +3,41 @@
 <html>
 <head>
     <title>Medical Note Builder Expanded Version</title>
-    <script>
-        // Function to add phrase to note
-        function addPhraseToNote(phrase) {
-            var note = document.getElementById("note");
-            var existingText = note.value;
-            note.value = existingText ? existingText + ", " + phrase : phrase;
-        }
+   <script>
+    // List of all dropdown IDs
+    var dropdownIds = ['abdomenDropdown', 'cardiovascularDropdown', 'heentDropdown', 'hemelymphDropdown', 'mskDropdown', 'respiratoryDropdown', 'endocrineDropdown', 'reproductiveDropdown', 'maleGUDropdown', 'femaleGUDropdown', 'neruoDrodown', 'psychDropdown', 'renalDropwdown'];  // add other IDs here as you expand the sections
+    
+    // Function to add phrase to note
+    function addPhraseToNote(phrase) {
+        var note = document.getElementById("note");
+        var existingText = note.value;
+        note.value = existingText ? existingText + ", " + phrase : phrase;
+    }
+    
+    // Function to toggle dropdown visibility
+    function toggleDropdown(id) {
+        var dropdown = document.getElementById(id);
         
-        // Function to toggle dropdown visibility
-        function toggleDropdown(id) {
-            var dropdown = document.getElementById(id);
-            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        // Hide all other dropdowns
+        dropdownIds.forEach(function(otherId) {
+            if(otherId !== id) {
+                document.getElementById(otherId).style.display = "none";
+            }
+        });
+        
+        // Toggle the clicked dropdown
+        if (dropdown.style.display === "none") {
+            dropdown.style.display = "block";
+        } else {
+            dropdown.style.display = "none";
+            
+            // Show all other dropdowns when closing the current one
+            dropdownIds.forEach(function(otherId) {
+                document.getElementById(otherId).style.display = "block";
+            });
         }
-    </script>
+    }
+</script>
     <style>
         /* Hide dropdown content by default */
         .dropdown-content {
