@@ -24,21 +24,25 @@
         }
         /* CSS for layout */
         .left-column {
-            width: 50%;
+            width: 30%;  /* Reduce the width to move the text box more to the right */
             float: left;
         }
         .right-column {
-            width: 50%;
+            width: 70%;  /* Increase the width */
             float: left;
         }
     </style>
 </head>
 <body>
     <div class="left-column">
-    <!-- Button and dropdown for Abdomen -->
-<button onclick="toggleDropdown('abdomenDropdown')" style="display: block;">Abdomen</button>
-<div id="abdomenDropdown" class="dropdown-content">
-    <button onclick="addPhraseToNote('Abdomen is soft')">Abdomen is soft</button>
+        <!-- Button and dropdown for Abdomen -->
+        <button onclick="toggleDropdown('abdomenDropdown')" style="display: block;">Abdomen</button>
+        <div id="abdomenDropdown" class="dropdown-content">
+            <!-- Your button phrases here -->
+        </div>
+    </div>
+    <div class="right-column">
+        <button onclick="addPhraseToNote('Abdomen is soft')">Abdomen is soft</button>
     <button onclick="addPhraseToNote('Abdomen is round')">Abdomen is round</button>
     <button onclick="addPhraseToNote('Abdomen is flat')">Abdomen is flat</button>
     <button onclick="addPhraseToNote('No tenderness')">No tenderness</button>
@@ -46,6 +50,9 @@
     <button onclick="addPhraseToNote('No organomegaly')">No organomegaly</button>
     <button onclick="addPhraseToNote('Bowel sounds normal')">Bowel sounds normal</button>
     <button onclick="addPhraseToNote('No abdominal bruits')">No abdominal bruits</button>
+        <textarea id="note"></textarea>
+    </div>
+   
 </div>
     
     <!-- Button and dropdown for Cardiovascular -->
