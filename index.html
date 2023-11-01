@@ -10,18 +10,36 @@
             var existingText = note.value;
             note.value = existingText ? existingText + ", " + phrase : phrase;
         }
+        
+        // Function to toggle dropdown visibility
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id);
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        }
     </script>
+    <style>
+        /* Hide dropdown content by default */
+        .dropdown-content {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <!-- Buttons for phrases -->
-    <button onclick="addPhraseToNote('Abdomen is soft')">Abdomen is soft</button>
-    <button onclick="addPhraseToNote('Heart rate is regular')">Heart rate is regular</button>
-    <button onclick="addPhraseToNote('No murmurs')">No murmurs</button>
+    <!-- Button and dropdown for Abdomen -->
+    <button onclick="toggleDropdown('abdomenDropdown')">Abdomen</button>
+    <div id="abdomenDropdown" class="dropdown-content">
+        <button onclick="addPhraseToNote('Abdomen is soft')">Abdomen is soft</button>
+    </div>
     
+    <!-- Button and dropdown for Cardiovascular -->
+    <button onclick="toggleDropdown('cardiovascularDropdown')">Cardiovascular</button>
+    <div id="cardiovascularDropdown" class="dropdown-content">
+        <button onclick="addPhraseToNote('Heart rate is regular')">Heart rate is regular</button>
+        <button onclick="addPhraseToNote('No murmurs')">No murmurs</button>
+    </div>
+
     <!-- Text box to show the note -->
     <textarea id="note"></textarea>
 </body>
 </html>
-"""
-
 
